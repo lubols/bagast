@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30.5.2017 9:48:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.ValueTbl" table="value_tbl" catalog="user_db" optimistic-lock="version">
+        <id name="idValue" type="java.lang.Integer">
+            <column name="id_value" />
+            <generator class="identity" />
+        </id>
+        <property name="type" type="string">
+            <column name="type" length="11" not-null="true" />
+        </property>
+        <property name="value1" type="int">
+            <column name="value1" not-null="true" />
+        </property>
+        <property name="value2" type="int">
+            <column name="value2" not-null="true" />
+        </property>
+        <property name="value3" type="int">
+            <column name="value3" not-null="true" />
+        </property>
+        <property name="value4" type="int">
+            <column name="value4" not-null="true" />
+        </property>
+        <property name="value5" type="int">
+            <column name="value5" not-null="true" />
+        </property>
+        <property name="value6" type="int">
+            <column name="value6" not-null="true" />
+        </property>
+        <property name="value7" type="int">
+            <column name="value7" not-null="true" />
+        </property>
+        <property name="value8" type="int">
+            <column name="value8" not-null="true" />
+        </property>
+        <property name="value9" type="int">
+            <column name="value9" not-null="true" />
+        </property>
+        <property name="value10" type="int">
+            <column name="value10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

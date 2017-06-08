@@ -1,0 +1,56 @@
+<div ng-controller="loginController">
+    <div class="loginWrapper">
+        <div class="loginBTNwrapper">
+
+            <div>
+                <button class="btn1" onclick="document.getElementById('loginPrihlasenie').style.display = 'block'" style="padding: 5px;font-size: 30px;">Prihlásenie</button>
+                <button class="btn1" onclick="document.getElementById('loginRegistracia').style.display = 'block'" style="padding: 5px;font-size: 30px;">Registrácia</button>
+            </div> 
+            <img src="images/background.jpg" width="100%" height="345">
+        </div> 
+    </div>    
+    <div id="loginPrihlasenie" class="modal">
+        <span onclick="document.getElementById('loginPrihlasenie').style.display = 'none'" class="close" title="Close Modal">×</span>
+        <form class="modal-content animate">
+            <div class="container">
+                <label><b>Meno</b></label>
+                <input type="text" placeholder="Zadajte meno" ng-model="user.name" required>
+
+                <label><b>Heslo</b></label>
+                <input type="password" placeholder="Zadajte heslo" ng-model="user.password" required>
+
+
+                <div class="clearfix">
+
+                    <button class="btn1" style="float: left" type="submit"  ng-click="checkDajMeno(user.name, user.password)">Prihlásiť</button>
+                    <button class="btn1" style="float: right" type="button"  onclick="document.getElementById('loginPrihlasenie').style.display = 'none'">Zrušiť</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="loginRegistracia" class="modal">
+        <span onclick="document.getElementById('loginRegistracia').style.display = 'none'" class="close" title="Close Modal">×</span>
+        <form class="modal-content animate">
+            <div class="container">
+                <label><b>Meno</b></label>
+                <input type="text" placeholder="Zadajte meno" name="meno" ng-model="user.name" required>
+
+                <label><b>Pohlavie</b></label>
+                <select style="width: 100%; padding: 12px 20px" placeholder="Vyberte pohlavie" ng-model="selectedGender" ng-options="x for x in genders"></select>
+
+                <label><b>Adresa</b></label>
+                <input type="text" placeholder="Zadajte adresu" name="adresa" ng-model="user.address" required>
+
+                <label><b>Heslo</b></label>
+                <input type="password" placeholder="Zadajte heslo" name="heslo" ng-model="user.heslo" required>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('loginRegistracia').style.display = 'none'" class="btn1" style="width: 35%; float: right">Zrušiť</button>
+                    <button type="submit"  class="btn1" style="width: 35%; float: left" ng-click="checkRegistruj(user.name, selectedGender, user.address, user.heslo)">Registrovať</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

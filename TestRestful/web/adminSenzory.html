@@ -1,0 +1,134 @@
+
+<div ng-controller="adminSenzoryCtrl">
+    
+    <div class="clearfix" style="border-top: 5px">    
+        <div style="float: left">
+            <button style="float: left" class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Pridať senzor</button>
+        </div>
+
+        <div style="float: right">
+            <a style="float: right" ui-sref="loginUvod"><button class="btn">Odhlásiť sa</button></a>
+        </div>
+    </div>
+    
+    <legend style="margin-top: 20px; margin-bottom: 3px">Senzory</legend>
+     <table class="table table-bordered table-striped">
+
+         <thead>
+             <tr>
+
+                 <td>
+                     Názov
+                 </td>
+                 <td>
+                     Typ
+                 </td>
+                 <td>
+                     Zobraziť hodnoty
+                 </td>
+                 <td>
+                     Zmazať senzor
+                 </td>
+             </tr>
+         </thead>
+
+         <tbody>
+             <tr ng-repeat="x in result_sensor">
+                 <td>{{x.name}}</td>
+                 <td>{{x.type}}</td>
+                 <td>
+                     <a style="cursor: pointer" onclick="document.getElementById('hodnoty').style.display='block'" ng-click="nacitajHodnoty(x.name, x.type)">Zobraziť</a> <!--zmenit odkaz-->
+                 </td>
+                 <td>
+                     <a style="cursor: pointer" ng-click="zmazSenzor(x.idSensor)">Zmazať senzor</a>
+                 </td>
+             </tr>
+         </tbody>
+
+
+     </table>
+
+
+
+
+     <br>
+
+                            
+                        
+                        
+
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content animate" >
+    <div class="container">
+        
+      <label><b>Názov</b></label>
+      <input type="text" placeholder="Zadajte názov"ng-model="sensor.name" required>
+  
+      <label><b>Typ</b></label><br>
+      <select style="width: 100%; padding: 12px 20px" placeholder="Vyberte typ" ng-model="selectedName" ng-options="x for x in names"></select>
+      <!--<input type="text" placeholder="Zadajte pohlavie"ng-model="sensor.type" required>--> 
+
+      <div class="clearfix">
+        <button type="submit" class="btn1"  ng-click="pridaj(sensor.name, selectedName)">Pridať</button>
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn1">Zrušiť</button>
+      </div>
+      
+      
+      
+    </div>
+  </form>
+</div>
+     
+
+<div id="hodnoty" class="modal">
+  <span onclick="document.getElementById('hodnoty').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content animate" >
+    <div class="container">
+        
+      <table class="table table-bordered table-striped">
+            <caption style="margin-top: 15px;">{{nazov_senzor}}</caption>
+
+            <tbody>
+                <tr>
+                    <td>Hodnoty</td>
+                    <td>{{value1}}</td>
+                    <td>{{value2}}</td>
+                    <td>{{value3}}</td>
+                    <td>{{value4}}</td>
+                    <td>{{value5}}</td>
+                    <td>{{value6}}</td>
+                    <td>{{value7}}</td>
+                    <td>{{value8}}</td>
+                    <td>{{value9}}</td>
+                    <td>{{value10}}</td>
+                </tr>
+                
+                
+            </tbody>
+
+        </table>
+        
+        <div>
+        <canvas id="myChart" ></canvas>
+        </div>
+
+        <div class="clearfix">
+            <button style="align-self: center" type="button" onclick="document.getElementById('hodnoty').style.display='none'" class="btn1">Zrušiť</button>
+      </div>
+      
+      
+      
+    </div>
+  </form>
+</div>
+                        
+                    
+         
+
+</div>
+
+       
+
+

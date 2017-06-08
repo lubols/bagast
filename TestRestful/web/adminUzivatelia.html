@@ -1,0 +1,43 @@
+
+<div ng-controller="adminUzivateliaCtrl">
+    
+    <div style="float: right">
+        <a style="float: right" ui-sref="loginUvod"><button class="btn">Odhlásiť sa</button></a>
+    </div>
+    
+    <legend>Užívatelia</legend>
+        <table class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+
+                    <td>
+                        Meno
+                    </td>
+                    <td>
+                        Pohlavie
+                    </td>
+                    <td>
+                        Adresa
+                    </td>
+                    <td>
+                        Zmazať užívateľa
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="x in result_user">
+                    <td>{{x.name}}</td>
+                    <td>{{x.gender}}</td>
+                    <td>{{x.address}}</td>
+                    <td>
+                        <a style="cursor: pointer" ng-click="zmazUzivatela(x.idUser)">Zmazať</a> <!--zmenit odkaz-->
+                    </td>
+                </tr>
+            </tbody>
+
+
+        </table>
+    
+</div>

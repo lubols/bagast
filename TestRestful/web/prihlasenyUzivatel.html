@@ -1,0 +1,113 @@
+<div ng-controller="prihlasUzivatelCtrl">
+    
+    <div style="float: left; margin-right: 8px">
+        <p style="font-size: 20px; margin-top: 10px;"><b>Prihlásený užívateľ:</b></p>
+    </div>
+    <div style="float: left">
+        
+        <p style="font-size: 20px; margin-top: 10px;">{{user_meno_data}}</p>
+        
+    </div>
+    
+    <div style="float: right">
+        <button class="btn" onclick="document.getElementById('profil').style.display='block'" style="width:auto; margin-right: 1em" ng-click="dajUzivatela(user_id_data)">Upraviť profil</button>
+        <a style="float: right" ui-sref="loginUvod"><button class="btn">Odhlásiť sa</button></a>
+    </div>
+    
+    <legend style="margin-top: 20px; margin-bottom: 3px">Senzory</legend>
+     <table class="table table-bordered table-striped">
+
+         <thead>
+             <tr>
+
+                 <td>
+                     Názov
+                 </td>
+                 <td>
+                     Typ
+                 </td>
+                 <td>
+                     Zobraziť hodnoty
+                 </td>
+             </tr>
+         </thead>
+
+         <tbody>
+             <tr ng-repeat="x in result">
+                 <td>{{x.name}}</td>
+                 <td>{{x.type}}</td>
+                 <td>
+                     <a style="cursor: pointer" onclick="document.getElementById('hodnoty1').style.display='block'" ng-click="nacitajHodnoty(x.name, x.type)">Zobraziť</a> <!--zmenit odkaz-->
+                 </td>
+             </tr>
+         </tbody>
+
+
+     </table>
+
+    
+    <div id="profil" class="modal">
+                <span onclick="document.getElementById('profil').style.display='none'" class="close" title="Close Modal">×</span>
+                <form class="modal-content animate">
+                    <div class="container">
+                        <label><b>Meno</b></label>
+                        <input type="text" placeholder="Zadajte meno" id="meno" required>
+                        
+                        <label><b>Adresa</b></label>
+                        <input type="text" placeholder="Zadajte adresu" id="adresa" required>
+
+                        <label><b>Heslo</b></label>
+                        <input type="text" placeholder="Zadajte heslo" id="heslo" required>
+                        
+                        <div class="clearfix">
+                            <button type="submit" class="btn1"  ng-click="posliUzivatelaDoDB()">Potvrdiť</button>
+                            <button type="button" onclick="document.getElementById('profil').style.display='none'" class="btn1">Zrušiť</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+    
+<div id="hodnoty1" class="modal">
+  <span onclick="document.getElementById('hodnoty1').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content animate" >
+    <div class="container">
+        
+      <table class="table table-bordered table-striped">
+            <caption  style="margin-top: 15px;">{{nazov_senzor}}</caption>
+
+            <tbody>
+                <tr>
+                    <td>Hodnoty</td>
+                    <td>{{value1}}</td>
+                    <td>{{value2}}</td>
+                    <td>{{value3}}</td>
+                    <td>{{value4}}</td>
+                    <td>{{value5}}</td>
+                    <td>{{value6}}</td>
+                    <td>{{value7}}</td>
+                    <td>{{value8}}</td>
+                    <td>{{value9}}</td>
+                    <td>{{value10}}</td>
+                </tr>
+                
+                
+            </tbody>
+
+        </table>
+        
+        <div >
+        <canvas id="myChart" height = window.innerHeight></canvas>
+        </div>
+
+        <div class="clearfix">
+            <button style="align-self: center" type="button" onclick="document.getElementById('hodnoty1').style.display='none'" class="btn1">Zrušiť</button>
+      </div>
+      
+      
+      
+    </div>
+  </form>
+</div>
+    
+</div>
